@@ -3,7 +3,7 @@
 
 ## Screenshot
 
-![](/Applications/MAMP/htdocs/phpcontactbook/img.png)
+![](img.png)
 
 ## Installation
 1. Clone the repository or download the zip file.
@@ -26,6 +26,4 @@ $dbname = "contacts_db";
 3. You can add, edit and delete contacts.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-```
-
+This project is licensed under the MIT License.
