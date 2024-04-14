@@ -4,11 +4,13 @@ steps:
     args: ['clone', 'https://github.com/yunhasnawa/phpcontactbook.git', 'source']
 
   # Step 2: Deploy the application to Compute Engine VM
+  # gcloud compute ssh vm-1 --zone=asia-southeast2-a
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'compute'
       - 'ssh'
       - 'vm-1'  # Replace with the name of your Compute Engine VM instance
+      - '--zone=asia-southeast2-a'  # Replace with the zone of your Compute Engine VM instance
       - '--command=cd /var/www/html/contact-book && git pull origin master'
     dir: '/var/www/html/contact-book'  # Specify the directory where your source code is cloned
 
