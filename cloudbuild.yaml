@@ -1,0 +1,24 @@
+steps:
+  # Step 1: Check out the source code from the GitHub repository
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['clone', 'https://github.com/yunhasnawa/phpcontactbook.git', 'source']
+
+  # Step 2: Install any dependencies or build steps required by your application
+  - name: 'gcr.io/cloud-builders/php'  # Replace with the appropriate builder image for your application
+    args: ['install']
+    dir: 'source'  # Specify the directory where your source code is cloned
+
+  # Step 3: Build your application (if necessary)
+  # Replace this step with your specific build command, if needed
+
+  # Step 4: Deploy the application to Compute Engine VM
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'compute'
+      - 'ssh'
+      - 'vm-1'  # Replace with the name of your Compute Engine VM instance
+      - '--command=cd /path/to/deployment/directory && git pull origin master && ./deploy.sh'
+    dir: '/var/www/html/contact-book'  # Specify the directory where your source code is cloned
+
+# Optionally, you can specify the timeout for the entire build process
+timeout: '1200s'

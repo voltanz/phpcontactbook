@@ -1,4 +1,6 @@
 -- Run the following SQL commands to create the database in your server
+-- mysql.exe -u root
+-- SHOW DATABASES;
 
 CREATE DATABASE IF NOT EXISTS contacts_db;
 
