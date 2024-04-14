@@ -6,7 +6,7 @@ steps:
       - 'ssh'
       - 'vm-1'  # Replace with the name of your Compute Engine VM instance
       - '--zone=asia-southeast2-a'  # Replace with the zone of your Compute Engine VM instance
-      - '--command=sudo apt-get update && sudo apt-get install -y php-mysql'
+      - '--command=sudo apt-get update && sudo apt-get install -y mysql-server php-mysql && sudo systemctl restart apache2'
 
   # Step 1: Deploy the application to Compute Engine VM
   - name: 'gcr.io/cloud-builders/gcloud'
@@ -16,6 +16,16 @@ steps:
       - 'vm-1'  # Replace with the name of your Compute Engine VM instance
       - '--zone=asia-southeast2-a'  # Replace with the zone of your Compute Engine VM instance
       - '--command=cd /var/www/html/contact-book && git pull origin main'
+    dir: '/var/www/html/contact-book'  # Specify the directory where your source code is cloned
+
+  # Step 3: Database migration
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'compute'
+      - 'ssh'
+      - 'vm-1'  # Replace with the name of your Compute Engine VM instance
+      - '--zone=asia-southeast2-a'  # Replace with the zone of your Compute Engine VM instance
+      - '--command=sudo mysql -u root && source /var/www/html/contact-book/data.sql && exit'
     dir: '/var/www/html/contact-book'  # Specify the directory where your source code is cloned
 
 # Optionally, you can specify the timeout for the entire build process
