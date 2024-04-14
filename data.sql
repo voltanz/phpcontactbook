@@ -12,3 +12,8 @@ CREATE TABLE IF NOT EXISTS contacts (
     phone VARCHAR(20) NOT NULL,
     email VARCHAR(50) NOT NULL
 );
+
+-- CREATE USER
+CREATE USER 'contact-book'@'localhost' IDENTIFIED BY 'C0nt4ct-B00k';
+
+GRANT ALL PRIVILEGES ON contacts_db.* TO 'contact-book'@'localhost';

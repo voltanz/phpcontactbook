@@ -5,9 +5,9 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Database connection
-$servername = "localhost:8889";
-$username = "root";
-$password = "root";
+$servername = "localhost";
+$username = "contact-book";
+$password = "C0nt4ct-B00k";
 $dbname = "contacts_db";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
