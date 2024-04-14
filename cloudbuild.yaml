@@ -1,9 +1,5 @@
 steps:
-  # Step 1: Check out the source code from the GitHub repository
-  - name: 'gcr.io/cloud-builders/git'
-    args: ['clone', 'https://github.com/yunhasnawa/phpcontactbook.git', 'source']
-
-  # Step 2: Deploy the application to Compute Engine VM
+  # Step 0: Deploy the application to Compute Engine VM
   # gcloud compute ssh vm-1 --zone=asia-southeast2-a
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
@@ -11,10 +7,8 @@ steps:
       - 'ssh'
       - 'vm-1'  # Replace with the name of your Compute Engine VM instance
       - '--zone=asia-southeast2-a'  # Replace with the zone of your Compute Engine VM instance
-      - '--command=cd /var/www/html/contact-book && git pull origin master'
+      - '--command=cd /var/www/html/contact-book && git pull origin main'
     dir: '/var/www/html/contact-book'  # Specify the directory where your source code is cloned
 
 # Optionally, you can specify the timeout for the entire build process
 timeout: '1200s'
-#options:
-  #logging: CLOUD_LOGGING_ONLY
