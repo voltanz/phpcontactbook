@@ -14,6 +14,6 @@ CREATE TABLE IF NOT EXISTS contacts (
 );
 
 -- CREATE USER
-CREATE USER 'contact-book'@'localhost' IDENTIFIED BY 'C0nt4ct-B00k';
+CREATE USER IF NOT EXISTS 'contact-book'@'localhost' IDENTIFIED BY 'C0nt4ct-B00k';
 
 GRANT ALL PRIVILEGES ON contacts_db.* TO 'contact-book'@'localhost';
