@@ -140,8 +140,8 @@ $result = $conn->query($sql);
 <body>
 
 <div class="container">
-    <h2>PHPContactBook</h2>
-    <h4>My Simple Contact Management</h4>
+    <h2>Aisyah-Bilqis ContactBook</h2>
+    <h4>My Simple Contact Management punya Kakak Aisyah dan Adek Bilqis</h4>
     <?php if(isset($message)): ?>
         <div class="notification"><?php echo $message; ?></div>
     <?php endif; ?>
