@@ -1,6 +1,14 @@
 steps:
-  # Step 0: Deploy the application to Compute Engine VM
-  # gcloud compute ssh vm-1 --zone=asia-southeast2-a
+  # Step 0: Install mysqli (php-mysql) package
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'compute'
+      - 'ssh'
+      - 'vm-1'  # Replace with the name of your Compute Engine VM instance
+      - '--zone=asia-southeast2-a'  # Replace with the zone of your Compute Engine VM instance
+      - '--command=sudo apt-get update && sudo apt-get install -y php-mysql'
+
+  # Step 1: Deploy the application to Compute Engine VM
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'compute'
