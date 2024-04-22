@@ -64,7 +64,7 @@ $sql = "SELECT * FROM contacts";
 $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Contact Management</title>
     <style>
@@ -140,8 +140,8 @@ $result = $conn->query($sql);
 <body>
 
 <div class="container">
-    <h2>Aisyah-Bilqis ContactBook</h2>
-    <h4>My Simple Contact Management punya Kakak Aisyah dan Adek Bilqis</h4>
+    <h2>PHP ContactBook</h2>
+    <h4 style="font-style: italic;">Simple contact management app written in PHP</h4>
     <?php if(isset($message)): ?>
         <div class="notification"><?php echo $message; ?></div>
     <?php endif; ?>
@@ -157,11 +157,11 @@ $result = $conn->query($sql);
     <form method="post" action="">
         <input type="hidden" name="id" value="<?php if(isset($_GET['edit'])) echo $_GET['edit']; ?>">
         <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" value="<?php if(isset($_GET['edit'])) echo $editedContact['name']; ?>" required><br>
+        <input type="text" id="name" name="name" placeholder="Contact's full name" value="<?php if(isset($_GET['edit'])) echo $editedContact['name']; ?>" required><br>
         <label for="phone">Phone:</label><br>
-        <input type="text" id="phone" name="phone" value="<?php if(isset($_GET['edit'])) echo $editedContact['phone']; ?>" required><br>
+        <input type="text" id="phone" name="phone" placeholder="Contact's phone number" value="<?php if(isset($_GET['edit'])) echo $editedContact['phone']; ?>" required><br>
         <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" value="<?php if(isset($_GET['edit'])) echo $editedContact['email']; ?>" required><br><br>
+        <input type="email" id="email" name="email" placeholder="Contact's email address" value="<?php if(isset($_GET['edit'])) echo $editedContact['email']; ?>" required><br><br>
         <a class="reset-button" href="index.php">Reset</a>
         <?php if(isset($_GET['edit'])): ?>
             <input type="submit" name="update" value="Update Contact">
