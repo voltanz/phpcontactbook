@@ -10,6 +10,10 @@ $username = "contact-book";
 $password = "C0nt4ct-B00k";
 $dbname = "contacts_db";
 
+// Local dev
+$username = "root";
+$password = "root";
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
@@ -72,7 +76,7 @@ $result = $conn->query($sql);
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
+            background-color: darkseagreen;
         }
         .container {
             max-width: 80%;
