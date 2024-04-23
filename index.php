@@ -11,8 +11,8 @@ $password = "C0nt4ct-B00k";
 $dbname = "contacts_db";
 
 // Local dev
-$username = "root";
-$password = "root";
+//$username = "root";
+//$password = "root";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
