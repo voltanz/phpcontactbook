@@ -16,7 +16,7 @@ steps:
       - 'vm-1'  # Replace with the name of your Compute Engine VM instance
       - '--zone=asia-southeast2-a'  # Replace with the zone of your Compute Engine VM instance
       - '--command=cd /var/www/html/contact-book && git pull origin main'
-    dir: '/var/www/html/contact-book'  # Specify the directory where your source code is cloned
+    dir: '/var/www/html/phpcontactbook'  # Specify the directory where your source code is cloned
 
   # Step 2: Database migration
   - name: 'gcr.io/cloud-builders/gcloud'
@@ -26,7 +26,7 @@ steps:
       - 'vm-1'  # Replace with the name of your Compute Engine VM instance
       - '--zone=asia-southeast2-a'  # Replace with the zone of your Compute Engine VM instance
       - '--command=sudo mysql -u root < /var/www/html/contact-book/data.sql'
-    dir: '/var/www/html/contact-book'  # Specify the directory where your source code is cloned
+    dir: '/var/www/html/phpcontactbook'  # Specify the directory where your source code is cloned
 
 # Optionally, you can specify the timeout for the entire build process
 timeout: '1200s'
